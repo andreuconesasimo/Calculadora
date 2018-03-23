@@ -7,10 +7,13 @@ namespace PooVueling.Tests
     {
         ICalculadora iCalculadora = new Calculadora();
 
-        [TestMethod()]
-        public void DivisionTest()
+        //[TestMethod()]
+        [DataRow(4,2,2)] // cada data row es una casuistica
+        [DataRow(9,3,3)] // 9/3 = 3
+        [DataTestMethod] // permite enviar datos al método de test
+        public void DivisionTest(int num1, int num2, int resultado)
         {
-            Assert.IsTrue(iCalculadora.Division(6,3) == 2);
+            Assert.IsTrue(iCalculadora.Division(num1,num2) == resultado);
         }
 
         [TestMethod()]
